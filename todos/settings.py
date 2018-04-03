@@ -25,7 +25,7 @@ SECRET_KEY = 'xe+&x1@b_81n)oi&wk3zd-ve33x=ld8=zs0)lngz3$ay_+s&&u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['annaira.pythonanywhere.com']
+ALLOWED_HOSTS = ['annaira.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
