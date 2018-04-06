@@ -4,6 +4,8 @@ from .models import Post
 from django.shortcuts import render, get_object_or_404
 from .forms import PostForm
 
+from todo.importance.importance import calculateImportance
+
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -37,6 +39,7 @@ def post_edit(request, pk):
             post = form.save(commit=False)
             post.author = request.user
             post.published_date = timezone.now()
+            post.importance = calculateImportance(post.title, post.text)
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
